@@ -7,13 +7,6 @@
       "type": "datasource",
       "pluginId": "prometheus",
       "pluginName": "Prometheus"
-    },
-    {
-      "name": "VAR_SCRAPE_INTERVAL",
-      "type": "constant",
-      "label": "Scrape Interval",
-      "value": "30s",
-      "description": "The configured scrape interval for Traefik metrics"
     }
   ],
   "__elements": {},
@@ -22,7 +15,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "12.4.2"
+      "version": "12.4.3+security-02"
     },
     {
       "type": "panel",
@@ -152,7 +145,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.2",
+      "pluginVersion": "12.4.3+security-02",
       "targets": [
         {
           "datasource": {
@@ -237,7 +230,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.2",
+      "pluginVersion": "12.4.3+security-02",
       "targets": [
         {
           "datasource": {
@@ -325,7 +318,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.2",
+      "pluginVersion": "12.4.3+security-02",
       "targets": [
         {
           "datasource": {
@@ -409,7 +402,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.2",
+      "pluginVersion": "12.4.3+security-02",
       "targets": [
         {
           "datasource": {
@@ -488,7 +481,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.2",
+      "pluginVersion": "12.4.3+security-02",
       "targets": [
         {
           "datasource": {
@@ -567,7 +560,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.2",
+      "pluginVersion": "12.4.3+security-02",
       "targets": [
         {
           "datasource": {
@@ -650,7 +643,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.4.2",
+      "pluginVersion": "12.4.3+security-02",
       "targets": [
         {
           "datasource": {
@@ -769,7 +762,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.2",
+      "pluginVersion": "12.4.3+security-02",
       "targets": [
         {
           "datasource": {
@@ -902,7 +895,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.2",
+      "pluginVersion": "12.4.3+security-02",
       "targets": [
         {
           "datasource": {
@@ -1023,7 +1016,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.2",
+      "pluginVersion": "12.4.3+security-02",
       "targets": [
         {
           "datasource": {
@@ -1222,7 +1215,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.4.2",
+      "pluginVersion": "12.4.3+security-02",
       "targets": [
         {
           "datasource": {
@@ -2341,25 +2334,24 @@
         "type": "query"
       },
       {
-        "description": "Scrape interval for Traefik Metrics",
+        "allowCustomValue": true,
+        "current": {
+          "text": "30s",
+          "value": "30s"
+        },
         "hide": 2,
         "label": "Scrape Interval",
         "name": "scrape_interval",
-        "query": "${VAR_SCRAPE_INTERVAL}",
-        "skipUrlSync": true,
-        "type": "constant",
-        "current": {
-          "value": "${VAR_SCRAPE_INTERVAL}",
-          "text": "${VAR_SCRAPE_INTERVAL}",
-          "selected": false
-        },
         "options": [
           {
-            "value": "${VAR_SCRAPE_INTERVAL}",
-            "text": "${VAR_SCRAPE_INTERVAL}",
-            "selected": false
+            "selected": true,
+            "text": "30s",
+            "value": "30s"
           }
-        ]
+        ],
+        "query": "30s",
+        "type": "custom",
+        "valuesFormat": "csv"
       }
     ]
   },
@@ -2383,6 +2375,6 @@
   "timezone": "browser",
   "title": "Kubernetes Traefik Ingress NextGen",
   "uid": "k8s-traefik-ingress-nextgen",
-  "version": 3,
+  "version": 47,
   "weekStart": ""
 }

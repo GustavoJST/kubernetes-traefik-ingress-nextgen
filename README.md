@@ -1,6 +1,6 @@
 # Kubernetes Traefik Ingress NextGen <!-- omit from toc -->
 
-[![Grafana](https://img.shields.io/badge/Grafana-12.4.2-%23F46800)](https://grafana.com)
+[![Grafana](https://img.shields.io/badge/Grafana-12.4.3-%23F46800)](https://grafana.com)
 [![Traefik](https://img.shields.io/badge/Traefik-Ingress-%23EE3D3D)](https://traefik.io)
 
 A Grafana dashboard for monitoring **Traefik Ingress Controller** via Prometheus metrics, created based on the [Kubernetes Nginx Ingress Prometheus NextGen Dashboard](https://github.com/DevOps-Nirvana/Grafana-Dashboards/tree/main) ([Grafana Link](https://grafana.com/grafana/dashboards/14314-kubernetes-nginx-ingress-controller-nextgen-devops-nirvana/)) by **DevOps-Nirvana**.
@@ -50,7 +50,7 @@ metrics:
     buckets: "0.005,0.01,0.025,0.05,0.1,0.25,0.5,1.0,2.5,5.0,10.0"
 ```
 
-4. As for Grafana versions, this dashboard was created using Grafana **12.4.2**. It should work without a problem on more modern versions, but I can't guarantee it will work on really old versions since I didn't test it.
+4. As for Grafana versions, this dashboard was created using Grafana **12.4.3**. It should work without a problem on more modern versions, but I can't guarantee it will work on really old versions since I didn't test it.
 
 
 ## Features
