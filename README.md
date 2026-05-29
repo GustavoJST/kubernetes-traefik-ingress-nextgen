@@ -133,9 +133,9 @@ traefik_router_requests_total{code="200",container="traefik",endpoint="metrics",
 
 In the example above, we have a kube-prometheus-stack Grafana instance deployed, with:
 
-Namespace name:`monitoring`
-Service name: `kube-prometheus-stack-grafana`
-Ingress name: `kube-prometheus-stack-grafana`
+- Namespace name: `monitoring`
+- Service name: `kube-prometheus-stack-grafana`
+- Ingress name: `kube-prometheus-stack-grafana`
 
 However, the format used by Traefik to expose this information makes it difficult to parse and extract, as there is no way to determine whether a dash separates the Namespace and Service names or is part of the Namespace, Service, or Ingress name, since these names may themselves contain dashes.
 
