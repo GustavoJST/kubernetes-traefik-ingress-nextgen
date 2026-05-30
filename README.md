@@ -2,6 +2,7 @@
 
 [![Grafana](https://img.shields.io/badge/Grafana-12.4.3-%23F46800)](https://grafana.com)
 [![Traefik](https://img.shields.io/badge/Traefik-Ingress-%23EE3D3D)](https://traefik.io)
+[![Grafana Link](https://img.shields.io/badge/Grafana_Link-blue)](https://grafana.com/grafana/dashboards/25330-kubernetes-traefik-ingress-nextgen/)
 
 A Grafana dashboard for monitoring **Traefik Ingress Controller** via Prometheus metrics, created based on the [Kubernetes Nginx Ingress Prometheus NextGen Dashboard](https://github.com/DevOps-Nirvana/Grafana-Dashboards/tree/main) ([Grafana Link](https://grafana.com/grafana/dashboards/14314-kubernetes-nginx-ingress-controller-nextgen-devops-nirvana/)) by **DevOps-Nirvana**.
 
