@@ -124,21 +124,30 @@ Selecting `All` (the default) shows aggregate data across the entire cluster.
 
 ### What about a namespace/ingress/etc filter?
 
-Because Traefik is agnostic, its metrics only have labels related to Traefik internal components, like routers, entrypoints and services (in the format `[namespace]-[service-name]@kubernetes`). Because of that, it's currently not possible to have such filters (unless the Traefik team adds these labels to the metrics)
+Since Traefik is agnostic, its metrics only expose labels related to its internal components, such as routers, entrypoints, and services, all following a very specific format (see below). As a result, filters for Kubernetes-specific resources like Namespaces or Ingresses cannot currently be provided unless the Traefik team adds these labels directly to the exported metrics.
 
-Here's some examples of labels available by Traefik metrics:
+Below is an example of a label set exposed by Traefik metrics:
 
 ```json
-traefik_router_requests_total{code="200",container="traefik",endpoint="metrics",exported_service="monitoring-kube-prometheus-stack-grafana-80@kubernetes",instance="10.100.117.95:9100",job="traefik-metrics",method="GET",namespace="traefik",pod="traefik-b55586d97-xwqrv",protocol="http",router="websecure-monitoring-kube-prometheus-stack-grafana-grafana-prod-example-com@kubernetes",service="traefik-metrics"}
+traefik_router_requests_total{code="200",container="traefik",endpoint="metrics",exported_service="monitoring-kube-prometheus-stack-grafana-service-80@kubernetes",instance="10.100.117.95:9100",job="traefik-metrics",method="GET",namespace="traefik",pod="traefik-b55586d97-xwqrv",protocol="http",router="websecure-monitoring-kube-prometheus-stack-grafana-ingress-grafana-prod-example-com@kubernetes",service="traefik-metrics"}
 ```
 
-In the example above, we have a kube-prometheus-stack Grafana instance deployed, with:
+In the example above, a Grafana instance from the `kube-prometheus-stack` Helm chart is deployed with the following resources:
 
 - Namespace name: `monitoring`
-- Service name: `kube-prometheus-stack-grafana`
-- Ingress name: `kube-prometheus-stack-grafana`
+- Service name: `kube-prometheus-stack-grafana-service`
+- Ingress name: `kube-prometheus-stack-grafana-ingress`
+- Ingress host: `grafana.prod.example.com`
 
-However, the format used by Traefik to expose this information makes it difficult to parse and extract, as there is no way to determine whether a dash separates the Namespace and Service names or is part of the Namespace, Service, or Ingress name, since these names may themselves contain dashes.
+When using the Kubernetes provider, the `router` label exposes this information using the following format:
+
+`router=[entrypoint]-[namespace]-[ingress]-[ingress-host]@kubernetes`
+
+For the `exported_service` label, the format is this:
+
+`exported_service=[namespace]-[service-name]-[service-port]@kubernetes`
+
+Since dashes are used both as separators and are also valid characters within Kubernetes resource names, there is no deterministic way to distinguish whether a given dash separates two components or is simply part of a Namespace, Service, or Ingress name. As a result, reliably parsing this information is not possible.
 
 ### My dashboard/filter doesn't work properly
 
